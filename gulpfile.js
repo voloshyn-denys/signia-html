@@ -1,36 +1,35 @@
-let {src, dest, watch } = require('gulp');
+let { src, dest, watch, series } = require('gulp');
 let postcss = require('gulp-postcss');
 let gcmq = require('gulp-group-css-media-queries');
 let autoprefixer = require('autoprefixer');
 let animation = require('postcss-animation');
-let sass = require('gulp-sass');
+let gulp_sass = require('gulp-sass');
 let cssnano = require('gulp-cssnano');
 
-let MAIN_SRC = 'src/sass/**/?(*.sass|*.scss)';
+const SRC = 'src/sass/**/?(*.sass|*.scss)';
+const DEST = './dest/assets/css';
 
-/* SASS TASK */
-const styles = (cb) => {
+const sass = () => {
     let processors = [
         animation(),
         autoprefixer({
-            overrideBrowserslist:  ['last 4 versions'],
+            overrideBrowserslist:  ['last 4 versions', 'Chrome >= 41', 'iOS >= 8', 'Safari >= 8'],
             cascade: false
         })
     ];
 
-    src(MAIN_SRC)
-        .pipe(sass().on('error', sass.logError))
+    return src(SRC)
+        .pipe(gulp_sass().on('error', gulp_sass.logError))
         .pipe(postcss(processors))
         .pipe(gcmq())
-        .pipe(cssnano())
-        .pipe(dest('./dest/assets/css'));
-    
-    cb();
+        .pipe(cssnano({zindex: false, reduceIdents: false}))
+        .pipe(dest(DEST));
 }
-exports.styles = styles;
 
-/* DEFAULT TASK */
-exports.default = function() {
-    /* WATCH TASK */
-    watch(MAIN_SRC, styles);
-};
+const watch_sass = () => {
+    watch(SRC, sass);
+}
+
+exports.watch = watch_sass;
+exports.sass = sass;
+exports.default = series(sass);
