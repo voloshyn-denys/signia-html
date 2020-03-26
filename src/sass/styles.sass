@@ -3,9 +3,12 @@
 
 @import 'utility/_normalize'
 @import 'utility/_base'
+@import 'utility/_animation'
 
 @import '_media'
 @import '_global'
+
+
 
 .section
     padding: 80px 0
@@ -175,6 +178,10 @@
             letter-spacing: -5px
             font-weight: bold
             color: $main
+            
+            a:hover,
+            &.active a
+                color: $main_d                
 
 .about
     display: flex
@@ -257,4 +264,4 @@
 
 .footer
     background-color: $main
-    color: #fff
+    color: #fff        

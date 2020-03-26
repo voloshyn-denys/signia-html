@@ -73,7 +73,7 @@ const watch_sass = () => {
   watch(path.js.src, scripts);
 };
 
-exports.watch = watch_sass;
 exports.sass = sass;
 exports.scripts = scripts;
+exports.watch = series(scripts, sass, watch_sass);
 exports.default = series(scripts, sass);

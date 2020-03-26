@@ -3,6 +3,9 @@
 import header from "./components/header";
 import textParallax from "./components/textParallax";
 import countUp from "./components/countUp";
+import animateSection from "./components/animateSection";
+import highlightNavigation from "./components/highlightNavigation";
+
 
 /* ELEMENTS */
 
@@ -17,7 +20,16 @@ const parallaxLayer = document.querySelector("#js-parallax-layer");
 const countupElements = document.querySelectorAll(".countup");
 const inViewportElement = document.querySelector(".achives");
 
+// ANIMATE SECTION
+const sectionsElements = document.querySelectorAll(".js-animate");
+
+// HIGHLIGHT NAVIGATION
+const links = document.querySelectorAll('.portfolio__navigation__item');
+const sections = document.querySelectorAll(".portfolio__area div");
+
 /* INIT COMPONENTS */
 header.init(headerElement);
 textParallax.init(parallaxScene, parallaxLayer);
 countUp.init(countupElements, inViewportElement);
+animateSection.init(sectionsElements);
+highlightNavigation.init(links, sections);
