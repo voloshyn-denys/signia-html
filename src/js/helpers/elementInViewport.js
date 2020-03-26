@@ -1,4 +1,4 @@
-export default elementInViewport = el => {
+export default el => {
   const bounds = el.getBoundingClientRect();
   return (
     bounds.top + bounds.height > 0 &&
