@@ -209,15 +209,21 @@
             </div>
             <div class="achives">
                 <div class="achives__item">
-                    <strong class="achives__number">20</strong>
+                    <strong class="achives__number">
+                        <span class="countup">20</span>
+                    </strong>
                     <div>Years of Experience</div> 
                 </div>
                 <div class="achives__item">
-                    <strong class="achives__number">56</strong>
+                    <strong class="achives__number">
+                        <span class="countup">56</span>
+                    </strong>
                     <div>Best Design Awards</div> 
                 </div>
                 <div class="achives__item">
-                    <strong class="achives__number">1 200+</strong>
+                    <strong class="achives__number">
+                        <span class="countup">1200</span>+
+                    </strong>
                     <div>Completed Projects</div> 
                 </div>
 
@@ -227,8 +233,8 @@
         </div>
     </section>
 
-    <section class="section services">
-        <ul class="services__background">
+    <section class="section services" id="js-parallax-scene">
+        <ul id="js-parallax-layer" class="services__background">
             <li>BRANDING</li>
             <li>ILLUSTRATION</li>
             <li>UI/UX DESIGN</li>
@@ -304,21 +310,7 @@
     </footer>
 
 
-<script>
-    "use strict";
-
-    const headerElement = document.querySelector(".header");
-    const fixedHeaderHandler = () => {
-        let scrollY = window.scrollY;
-        if (scrollY === 0) {
-            headerElement.classList.remove("active")
-        } else {
-            headerElement.classList.add("active")
-        }
-    }
-
-    document.addEventListener("scroll", fixedHeaderHandler)
-</script>
+    <script src="./assets/js/main.js" async></script>
 
 </body>
 </html>
