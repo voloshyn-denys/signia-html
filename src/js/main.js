@@ -1,9 +1,10 @@
-/* IMPORT COMPONENTS */ 
+"use strict";
+/* IMPORT COMPONENTS */
 import header from "./components/header";
 import textParallax from "./components/textParallax";
 import countUp from "./components/countUp";
 
-/* ELEMENTS */ 
+/* ELEMENTS */
 
 // FIXED HEADER ELEMENT
 const headerElement = document.querySelector(".header");
@@ -16,7 +17,7 @@ const parallaxLayer = document.querySelector("#js-parallax-layer");
 const countupElements = document.querySelectorAll(".countup");
 const inViewportElement = document.querySelector(".achives");
 
-/* INIT COMPONENTS */ 
+/* INIT COMPONENTS */
 header.init(headerElement);
 textParallax.init(parallaxScene, parallaxLayer);
 countUp.init(countupElements, inViewportElement);
