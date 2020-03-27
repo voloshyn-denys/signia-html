@@ -164,6 +164,63 @@
     &__area
         flex: 1
 
+    &__box
+        &:not(:first-child)
+            padding-top: 40px
+
+        &:not(:last-child)
+            padding-bottom: 40px
+            border-bottom: 5px dashed $main_d
+
+    &__card
+        display: flex
+        box-shadow: 2px 2px 6px rgba(0,0,0, 0.2)
+        border-radius: 5px
+        overflow: hidden
+
+        &:not(:last-child)
+            margin-bottom: 40px
+
+        &:nth-child(even)
+            flex-direction: row-reverse
+
+        &__img
+            display: block
+            position: relative
+            min-height: 290px
+            width: 50%
+            overflow: hidden
+            flex: none
+
+            &:hover
+                img
+                    transform: scale(1.5) rotate(10deg)
+
+            img
+                position: absolute
+                top: 0
+                left: 0
+                right: 0
+                bottom: 0
+                margin: auto
+                transition:  transform .5s
+                will-change: transform
+
+        &__area
+            flex: 1
+            padding: 20px
+            background: #f3edf6
+        &__meta
+            margin-bottom: 10px
+
+        &__title
+            font-size: 22px
+            font-weight: bold
+            margin-bottom: 15px
+
+        &__description
+            margin-bottom: 0
+
     &__navigation
         position: sticky
         top: 80px

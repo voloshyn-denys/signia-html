@@ -25,7 +25,7 @@ const sectionsElements = document.querySelectorAll(".js-animate");
 
 // HIGHLIGHT NAVIGATION
 const links = document.querySelectorAll('.portfolio__navigation__item');
-const sections = document.querySelectorAll(".portfolio__area div");
+const sections = document.querySelectorAll(".portfolio__area .portfolio__box");
 
 /* INIT COMPONENTS */
 header.init(headerElement);
