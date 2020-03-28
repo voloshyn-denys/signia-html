@@ -5,7 +5,7 @@ import textParallax from "./components/textParallax";
 import countUp from "./components/countUp";
 import animateSection from "./components/animateSection";
 import highlightNavigation from "./components/highlightNavigation";
-
+import heroSlider from "./components/heroSlider";
 
 /* ELEMENTS */
 
@@ -33,3 +33,4 @@ textParallax.init(parallaxScene, parallaxLayer);
 countUp.init(countupElements, inViewportElement);
 animateSection.init(sectionsElements);
 highlightNavigation.init(links, sections);
+heroSlider.init('.glide');

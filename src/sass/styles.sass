@@ -1,5 +1,7 @@
+@import "../../node_modules/@glidejs/glide/src/assets/sass/glide.core"
+
 @import url('https://fonts.googleapis.com/css?family=DM+Sans:400,700&display=swap')
-@import url('https://fonts.googleapis.com/css?family=Poppins:700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:700&display=swap')
 
 @import 'utility/_normalize'
 @import 'utility/_base'
@@ -8,6 +10,28 @@
 @import '_media'
 @import '_global'
 
+.glide
+    &__bullets
+        position: absolute
+        bottom: 0
+        right: 0
+        padding: 15px 40px
+
+    &__bullet
+        display: inline-block
+        width: 20px
+        height: 20px
+        border-radius: 50%
+        
+        cursor: pointer
+        transition: all .3s
+        border: 2px solid #fff
+
+        &--active
+            background-color: #fff
+
+        &:not(:last-child)
+            margin-right: 5px
 
 
 .section
@@ -126,24 +150,30 @@
         max-width: 500px
 
     &__area
-        flex: 1
+        flex: none
+        width: 50%
 
         &:last-child
             display: flex
-
 .slider
+    margin: 0
+
+    &__wrap
+        border-radius: 0 0 42px 0
+
     &__item
         position: relative
         height: 635px
         overflow: hidden
-        
-
+        cursor: grab
+    
     &__image
         position: absolute
         top: 0;
         right: 0
         max-width: initial
-        border-radius: 0 0 42px 0
+
+        
 
 .intro
     display: flex
