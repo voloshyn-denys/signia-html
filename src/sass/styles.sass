@@ -11,6 +11,11 @@
 @import '_global'
 
 .glide
+    margin: 40px 0
+
+    +md_desktop
+        margin: 0
+
     &__bullets
         position: absolute
         bottom: 0
@@ -35,15 +40,21 @@
 
 
 .section
-    padding: 80px 0
+    padding: 40px 0
+
+    +md_desktop 
+        padding: 80px 0
 
     &--colored-skew
-        overflow: hidden
-        background: linear-gradient(0, $bgcolor 50%, $main_l 50%)
-        
-        .skew
-            background: $main_l
-            box-shadow: 0 6px 6px rgba(0,0,0, .1)
+        background: $main_l
+
+        +md_desktop 
+            overflow: hidden
+            background: linear-gradient(0, $bgcolor 50%, $main_l 50%)
+            
+            .skew
+                background: $main_l
+                box-shadow: 0 6px 6px rgba(0,0,0, .1)
 
     &--colored
         background: $main_l 
@@ -60,21 +71,20 @@
     margin: 0 auto
     position: relative
 
-    +md_tablet
-        max-width: 768px
-
     +md_desktop
         max-width: 1200px
 
-
 .header
-    position: fixed
+    position: sticky
     top: 0
     left: 0
     width: 100%
     z-index: 1
     padding: 25px 0
     transition: background-color .2s
+
+    +md_desktop
+        position: fixed
 
     &.active
         
@@ -103,14 +113,16 @@
         font-size: 36px
         font-weight: bold
         letter-spacing: -3px
-        color: #fff
+        color: $main
         font-family: 'Poppins', sans-serif
         text-shadow: 0 3px 4px rgba(0,0,0, .2)
 
-        &:hover
+        +md_desktop
             color: #fff
-        
 
+            &:hover
+                color: #fff
+        
     &__area
         flex: 1
 
@@ -124,11 +136,14 @@
         
 
 .navigation
-    margin: 0
-    padding: 0
-    list-style-type: none
-    display: flex
-    margin-left: 70px
+    display: none
+
+    +md_desktop
+        margin: 0
+        padding: 0
+        list-style-type: none
+        display: flex
+        margin-left: 70px
 
     &__item
         font-weight: bold
@@ -140,73 +155,149 @@
             color: $main
 
 .hero
+
+    .button
+        max-width: 100%
+
+        +md_desktop
+            max-width: 300px
+
+
     &__container
-        display: flex
+        padding: 0 15px
+
+        +md_desktop
+            padding: 0
+            display: flex
 
     &__content
-        margin: auto 0
-        padding-left: 70px
-        width: 100%
-        max-width: 500px
+        
+        +md_desktop
+            width: 100%
+            max-width: 500px
+            margin: auto 0
+            padding-left: 70px
 
     &__area
-        flex: none
-        width: 50%
+        +md_desktop
+            flex: none
+            width: 50%
 
-        &:last-child
-            display: flex
+        &:first-child
+            +md_desktop
+                order: 1
+                display: flex
+
 .slider
     margin: 0
 
     &__wrap
-        border-radius: 0 0 42px 0
+        +md_desktop
+            border-radius: 0 0 42px 0
 
     &__item
         position: relative
-        height: 635px
+        height: 200px
         overflow: hidden
         cursor: grab
+
+        +md_tablet
+            height: 300px
+
+        +md_desktop
+            height: 635px
     
     &__image
         position: absolute
-        top: 0;
+        top: 0
+        left: 0
         right: 0
-        max-width: initial
+        bottom: 0
+        margin: auto
+
+        +md_desktop
+            max-width: initial
+            left: initial
+            bottom: initial
+            
 
         
 
 .intro
-    display: flex
+    +md_tablet
+        display: flex
 
     &__area
-        flex: 1
+        +md_desktop
+            flex: 1
+
+        &:last-child
+            text-align: center
 
     &__image
-        margin: -80px 0
+        max-width: 300px
+
+        +md_desktop
+            max-width: 100%
+            margin: -80px 0
 
 .works
-    padding-top: 0
-    margin-top: -80px
+    +md_desktop
+        padding-top: 0
+        margin-top: -80px
 
 .portfolio
-    display: flex
+    +md_desktop
+        display: flex
 
     &__area
-        flex: 1
+        +md_desktop
+            flex: 1
+
+        &:first-child
+            +md_desktop
+                order: 1
+
+        & > .portfolio__navigation__item
+            +md_desktop
+                display: none
 
     &__box
-        &:not(:first-child)
-            padding-top: 40px
+        padding-top: 40px
+
+        +md_tablet
+            display: flex
+            flex-wrap: wrap
+            justify-content: space-between
+
+        +md_desktop
+            display: block
+            padding-top: 0
+
+        &:not(:first-of-type)
+            +md_desktop
+                padding-top: 40px
 
         &:not(:last-child)
-            padding-bottom: 40px
-            border-bottom: 5px dashed $main_d
+
+            +md_desktop
+                padding-bottom: 40px
+                border-bottom: 5px dashed $main_d
 
     &__card
-        display: flex
         box-shadow: 2px 2px 6px rgba(0,0,0, 0.2)
         border-radius: 5px
         overflow: hidden
+        margin-bottom: 40px
+
+        +md_tablet
+            width: 48%
+            flex: none
+
+        +md_desktop
+            width: 100%
+            display: flex
+            margin-bottom: 0
 
         &:not(:last-child)
             margin-bottom: 40px
@@ -218,9 +309,12 @@
             display: block
             position: relative
             min-height: 290px
-            width: 50%
             overflow: hidden
-            flex: none
+
+            +md_desktop
+                flex: none
+                width: 50%
+            
 
             &:hover
                 img
@@ -240,6 +334,7 @@
             flex: 1
             padding: 20px
             background: $main_l
+
         &__meta
             margin-bottom: 10px
 
@@ -252,44 +347,67 @@
             margin-bottom: 0
 
     &__navigation
-        position: sticky
-        top: 80px
-        left: 0
-        margin: 0
+        margin: 0 0 40px
         padding: 0
         list-style-type: none
-        padding-left: 70px
+        display: none
+
+        +md_desktop
+            display: block
+            position: sticky
+            top: 80px
+            left: 0    
+            padding-left: 70px
+            margin: 0
 
         &__item
-            font-size: 62px
-            letter-spacing: -5px
+            font-size: 42px
+            letter-spacing: -2px
             font-weight: bold
             color: $main
+            margin-bottom: -30px
+            display: block
+
+            +md_desktop
+                font-size: 62px
+                letter-spacing: -5px
+                margin-bottom: 0
             
             a:hover,
             &.active a
-                color: $main_d                
+                +md_desktop
+                    color: $main_d                
 
 .about
-    display: flex
+    +md_desktop
+        display: flex
 
     &__area
-        flex: 1
+        +md_desktop
+            flex: 1
 
         &:last-child
 
             img
-                margin-left: 70px
+                +md_desktop
+                    margin-left: 70px
 
 .achives
     padding-top: 20px
-    display: flex
-    justify-content: space-between
+    +md_desktop
+        display: flex
+        justify-content: space-between
 
     &__item
         letter-spacing: -3px
         font-size: 36px
         line-height: 30px
+
+        &:not(:last-child)
+            margin-bottom: 40px
+
+            +md_desktop
+                margin-bottom: 0
 
     &__number
         font-size: 92px
@@ -297,30 +415,37 @@
         color: $main
 
 .services
-    position: relative
-    overflow: hidden
-    padding: 175px 0
-    box-shadow: inset 0 5px 15px rgba(0,0,0, .2)
 
+    +md_desktop
+        position: relative
+        overflow: hidden
+        padding: 175px 0
+        box-shadow: inset 0 5px 15px rgba(0,0,0, .2)
+    
     .container
         +clearfix
 
     &__background
-        position: absolute
-        top: 0 
-        right: 55%
-        color: $main
-        font-size: 194px
-        line-height: 1
-        font-weight: bold
-        list-style-type: none
-        margin: 0
-        padding: 0
-        opacity: 0.4;
+        display: none
+
+        +md_desktop
+            display: block
+            position: absolute
+            top: 0 
+            right: 55%
+            color: $main
+            font-size: 194px
+            line-height: 1
+            font-weight: bold
+            list-style-type: none
+            margin: 0
+            padding: 0
+            opacity: 0.4;
 
     &__area
-        float: right
-        width: 50%
+        +md_desktop
+            float: right
+            width: 50%
 
     &__list
         display: flex
@@ -332,7 +457,13 @@
 
         &::after
             content: ""
-            width: 150px
+            width: 100%
+
+            +md_tablet
+                width: 33%
+
+            +md_desktop
+                width: 150px
 
         &__image
             display: block
@@ -344,9 +475,15 @@
         &__item
             font-size: 22px
             flex: none
-            width: 150px
+            width: 48%
             margin-bottom: 50px
             text-align: center
+
+            +md_tablet
+                width: 33%
+
+            +md_desktop
+                width: 150px
 
             &:hover
 
@@ -361,24 +498,42 @@
 
 
 .parallax
-    padding: 0
-    height: 400px
-    overflow: hidden
-    background-attachment: fixed
-    background-position: center
-    background-repeat: no-repeat
-    background-size: cover
-    filter: brightness(0.2)
+    display: none
+
+    +md_desktop
+        display: block
+        padding: 0
+        height: 400px
+        overflow: hidden
+        background-attachment: fixed
+        background-position: center
+        background-repeat: no-repeat
+        background-size: cover
+        filter: brightness(0.2)
 
 .blog
-    display: flex
-    justify-content: space-between
+
+    +md_tablet
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+
+    +md_desktop
+        flex-wrap: nowrap
 
     &__card
-        width: 350px
+        width: 100%
         border-radius: 10px
         overflow: hidden
         box-shadow: 2px 2px 6px rgba(0,0,0,.2)
+        margin-bottom: 20px
+
+        +md_tablet
+            width: 48%
+
+        +md_desktop
+            width: 350px
+            margin-bottom: 0
 
         &:hover
             .blog__card__image
@@ -433,12 +588,15 @@
 
     &__area
         padding: 20px 0
-        display: flex
-        justify-content: space-between
+
+        +md_desktop
+            display: flex
+            justify-content: space-between
 
     &__item
-        flex: 1
-        padding-right: 40px
+        +md_desktop
+            flex: 1
+            padding-right: 40px
 
     &__list
         margin: 0
